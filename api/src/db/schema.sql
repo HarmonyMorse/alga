@@ -10,6 +10,11 @@ CREATE TABLE challenges (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     title TEXT NOT NULL,
     description TEXT NOT NULL,
+    examples JSONB NOT NULL,
+    approach TEXT NOT NULL,
+    sample_code JSONB NOT NULL,
+    difficulty_level TEXT NOT NULL CHECK (difficulty_level IN ('basic', 'easy', 'medium', 'hard', 'complex')),
+    posted_date DATE NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL
 );
@@ -33,10 +38,21 @@ CREATE POLICY "Challenges are viewable by everyone"
     ON challenges FOR SELECT 
     USING (true);
 
-CREATE POLICY "Challenges can only be inserted by authenticated users" 
+CREATE POLICY "Only admin can insert challenges" 
     ON challenges FOR INSERT 
     TO authenticated 
-    WITH CHECK (true);
+    WITH CHECK (auth.email() = 'admin@alga.com');
+
+CREATE POLICY "Only admin can update challenges" 
+    ON challenges FOR UPDATE 
+    TO authenticated 
+    USING (auth.email() = 'admin@alga.com')
+    WITH CHECK (auth.email() = 'admin@alga.com');
+
+CREATE POLICY "Only admin can delete challenges" 
+    ON challenges FOR DELETE 
+    TO authenticated 
+    USING (auth.email() = 'admin@alga.com');
 
 -- Create policies for solutions table
 CREATE POLICY "Users can view their own solutions" 
