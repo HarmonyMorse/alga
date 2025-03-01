@@ -58,10 +58,10 @@ const HomePage = () => {
                     <h2 className="text-2xl font-bold mb-3">Daily Challenge</h2>
                     <p className="mb-4">Solve today's coding challenge using our visual block editor.</p>
                     <Link
-                        to="/editor"
+                        to="/challenges"
                         className="inline-block px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
                     >
-                        Start Coding
+                        View Challenges
                     </Link>
                 </div>
 

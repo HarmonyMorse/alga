@@ -4,6 +4,8 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import EditorPage from "./pages/EditorPage";
+import ChallengesPage from "./pages/ChallengesPage";
+import CodingPage from "./pages/CodingPage";
 
 export const router = createBrowserRouter([
     {
@@ -25,6 +27,14 @@ export const router = createBrowserRouter([
             {
                 path: "editor",
                 element: <EditorPage />
+            },
+            {
+                path: "challenges",
+                element: <ChallengesPage />
+            },
+            {
+                path: "coding/:challengeId",
+                element: <CodingPage />
             }
         ]
     }
