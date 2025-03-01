@@ -68,6 +68,9 @@ const apiService = {
     getUserProfile: () => api.get('/auth/profile'),
     updateUserProfile: (userData) => api.put('/auth/profile', userData),
 
+    // Challenge endpoints
+    createChallenge: (challengeData) => api.post('/challenges', challengeData),
+
     // Add more API endpoints as needed
 };
 
