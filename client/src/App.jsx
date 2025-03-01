@@ -11,6 +11,7 @@ function App() {
             <ul className="flex space-x-4">
               <li><Link to="/" className="hover:text-blue-300">Home</Link></li>
               <li><Link to="/login" className="hover:text-blue-300">Login</Link></li>
+              <li><Link to="/signup" className="hover:text-blue-300">Sign Up</Link></li>
               <li><Link to="/editor" className="hover:text-blue-300">Editor</Link></li>
             </ul>
           </nav>
