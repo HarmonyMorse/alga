@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as Blockly from 'blockly';
-import 'blockly/javascript';
+import { javascriptGenerator } from 'blockly/javascript';
 
 const EditorPage = () => {
     const blocklyDiv = useRef(null);
@@ -43,7 +43,7 @@ const EditorPage = () => {
 
     const onGenerateCode = () => {
         if (workspace) {
-            const code = Blockly.JavaScript.workspaceToCode(workspace);
+            const code = javascriptGenerator.workspaceToCode(workspace);
             setGeneratedCode(code);
             console.log(code);
         }
