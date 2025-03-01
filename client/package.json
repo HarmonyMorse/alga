@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "start": "vite build && node dist/index.js",
+    "start": "vite build && vite preview --host --port 5173",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
